@@ -2,10 +2,5 @@
   "buildCommand": "pnpm build",
   "outputDirectory": ".next",
   "installCommand": "pnpm install",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ]
+  "framework": "nextjs"
 }
