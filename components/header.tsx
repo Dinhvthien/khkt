@@ -3,34 +3,66 @@
 import { useState, usePathname } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Menu, X, ArrowLeft } from "lucide-react"
 
 const homeLinks = [
   { href: "#about", label: "Giới thiệu" },
-  { href: "#programs", label: "Ngành học" },
   { href: "#scholarships", label: "Học bổng" },
+  { href: "#programs", label: "Ngành học" },
   { href: "#schools", label: "Trường" },
   { href: "#process", label: "Quy trình" },
   { href: "/faq", label: "FAQ" },
-  { href: "#contact", label: "Liên hệ" },
 ]
 
 const faqLinks = [
   { href: "/", label: "Trang chủ" },
   { href: "/#about", label: "Giới thiệu" },
-  { href: "/#programs", label: "Ngành học" },
   { href: "/#scholarships", label: "Học bổng" },
+  { href: "/#programs", label: "Ngành học" },
   { href: "/#schools", label: "Trường" },
   { href: "/#process", label: "Quy trình" },
   { href: "/faq", label: "FAQ" },
-  { href: "/#contact", label: "Liên hệ" },
 ]
+
+function normalizePath(href: string): string {
+  if (href.startsWith("/#")) {
+    return href
+  }
+  if (href.startsWith("#")) {
+    return href
+  }
+  return href
+}
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/"
   const isFaqPage = pathname === "/faq"
   const navLinks = isFaqPage ? faqLinks : homeLinks
+  const router = useRouter()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const normalizedHref = normalizePath(href)
+    
+    if (normalizedHref.startsWith("#") || normalizedHref.startsWith("/#")) {
+      const hash = normalizedHref.startsWith("#") 
+        ? normalizedHref.substring(1) 
+        : normalizedHref.split("#")[1]
+      const currentPath = window.location.pathname
+      
+      const element = document.getElementById(hash)
+      
+      if (element && currentPath === "/") {
+        element.scrollIntoView({ behavior: "smooth" })
+      } else {
+        window.location.href = "/#" + hash
+      }
+    } else {
+      router.push(href)
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -51,7 +83,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                target={link.href.startsWith("/") ? "_self" : undefined}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
@@ -81,9 +113,11 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                target={link.href.startsWith("/") ? "_self" : undefined}
+                onClick={(e) => {
+                  handleNavClick(e, link.href)
+                  setMobileMenuOpen(false)
+                }}
                 className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
