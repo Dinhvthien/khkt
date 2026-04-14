@@ -42,8 +42,8 @@ const benefits = [
   },
   {
     icon: GraduationCap,
-    title: "Bằng cấp chính quy",
-    description: "Nhận bằng Cao đẳng chính quy, hoặc bằng THPT + Trung cấp + Cao đẳng với hệ 9+ liên thông",
+    title: "Bằng cấp",
+    description: "Nhận bằng Cao đẳng, hoặc bằng THPT + Trung cấp + Cao đẳng với hệ 9+ liên thông",
   },
   {
     icon: Trophy,
@@ -107,51 +107,6 @@ export function BenefitsSection() {
               </p>
             </div>
           ))}
-        </div>
-
-        {/* Income Table */}
-        <div className="bg-card rounded-3xl border border-border overflow-hidden">
-          <div className="bg-primary/5 px-8 py-6 border-b border-border">
-            <h3 className="text-xl font-semibold text-foreground">
-              Thu nhập theo từng chương trình
-            </h3>
-            <p className="text-muted-foreground mt-1">
-              Mức trợ cấp/thu nhập hàng tháng tùy theo kỹ năng nghề và thời lượng thực hành
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border bg-muted/30">
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Chương trình</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Hỗ trợ học bổng</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Tổng giá trị</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Thu nhập/tháng</th>
-                </tr>
-              </thead>
-              <tbody>
-                {incomeTable.map((row, index) => (
-                  <tr 
-                    key={row.program} 
-                    className={index !== incomeTable.length - 1 ? "border-b border-border" : ""}
-                  >
-                    <td className="px-6 py-4">
-                      <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary text-primary-foreground font-bold text-sm">
-                        {row.program}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-foreground">{row.scholarship}</td>
-                    <td className="px-6 py-4 text-foreground">{row.value}</td>
-                    <td className="px-6 py-4">
-                      <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800">
-                        {row.income}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
 
         {/* Career Path */}

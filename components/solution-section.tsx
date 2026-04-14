@@ -72,13 +72,6 @@ export function SolutionSection() {
                 </div>
               ))}
             </div>
-
-            <div className="mt-8 pt-6 border-t border-border">
-              <p className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">Mô hình 3 nhà:</span>{" "}
-                Nhà nước - Nhà trường - Doanh nghiệp. Phù hợp với định hướng của Đảng và Chính phủ về giáo dục nghề nghiệp.
-              </p>
-            </div>
           </div>
         </div>
       </div>
