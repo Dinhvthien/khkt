@@ -166,11 +166,14 @@ const sections = [
           "Vừa học vừa làm tại doanh nghiệp FDI",
           "Có lương/thu nhập hàng tháng",
           "Xe đưa đón khi ở xa nhà máy",
-          "Đào tạo kỹ năng mềm, giao lưu quốc tế",
-          "Cam kết việc làm sau tốt nghiệp 01 năm",
+          "Đào tạo kỹ năng mềm, kỹ năng sống, tham gia hoạt động ngoại khoá: Văn nghệ, thể thao, du lịch",
+          "Tham gia giao lưu quốc tế (Hàn Quốc, Nhật Bản, Trung Quốc)",
+          "Cam kết việc làm sau tốt nghiệp 01 năm tại doanh nghiệp FDI",
+          "Được bố trí công việc sau khi hoàn thành chương trình đào tạo",
+          "Được cấp bằng Cao đẳng chính quy (hoặc bằng THPT, Trung cấp đối hệ 9+ liên thông)",
+          "Sinh viên có thành tích tốt được tiếp tục tài trợ lên Đại học",
+          "Cơ hội du học Nhật Bản, Hàn Quốc học tập và làm việc (được hỗ trợ phí xuất cảnh)",
           "Đóng BHYT, BHXH theo quy định",
-          "Có cơ hội du học Nhật Bản, Hàn Quốc",
-          "Được cấp bằng Cao đẳng chính quy",
         ]
       },
       {
